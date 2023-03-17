@@ -1,0 +1,53 @@
+@use 'variables';
+
+
+@mixin container {
+    max-width: 1110px;
+    height: 447px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: variables.$card-background;
+}
+
+@mixin sections {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: variables.$main-heading-stats;
+}
+
+@mixin media_query {
+
+    main {
+        min-width: variables.$Mobile-width;
+        height: 90vh;
+        display: flex;
+        margin: 25px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
+
+    .section {
+        flex-direction: column;
+
+        &-img {
+            background-image: url('/stats-preview-card-component-main/images/image-header-mobile.jpg')
+        }
+
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+
+        &-foot{
+            flex-direction: column;
+        }
+    }
+
+}

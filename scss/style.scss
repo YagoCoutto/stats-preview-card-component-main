@@ -1,0 +1,114 @@
+@use 'variables';
+@use 'mixins';
+
+* {
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    @include mixins.container;
+    max-width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+    background-color: variables.$main-background;
+}
+
+main {
+    @include mixins.container;
+
+    .content {
+        @include mixins.sections;
+        text-align: center;
+        justify-content: space-around;
+        padding: 2.8rem 7.5rem 2.8rem 4.6rem;
+
+        h1 {
+            font-size: 2.2rem;
+            text-align: start;
+            color: variables.$main-heading-stats;
+
+            span {
+                color: variables.$accent;
+            }
+        }
+
+        p {
+            font-size: variables.$body-copy;
+            text-align: start;
+            color: variables.$Slightly-transparent-white-main-paragraph;
+        }
+
+        .content-foot {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 50px;
+
+            ul {
+                margin: 1px;
+                flex-direction: column;
+                text-align: start;
+
+                li {
+                    flex-direction: column;
+                    list-style: none;
+
+                    strong {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .p-desc {
+                    margin: 8px 0 0 0;
+                    letter-spacing: 2px;
+                    font-size: 0.6rem;
+                    color: variables.$Slightly-transparent-white-main-paragraph;
+                    text-transform: uppercase;
+                }
+
+            }
+        }
+
+        &-img {
+            @include mixins.sections;
+            background-image: url('/stats-preview-card-component-main/images/image-header-desktop.jpg');
+            position: relative;
+            
+        }
+        &-img::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: variables.$accent;
+            opacity: 0.5;
+        }
+        
+        &-img {
+            display: block;
+            max-width: 100%;
+            height: 100%;
+            filter: brightness(0.8);
+        }
+
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    @include mixins.media_query;
+    main .content h1 {
+        text-align: center;
+
+    }
+    main .content p{
+        text-align: center;
+    }
+    
+  }
